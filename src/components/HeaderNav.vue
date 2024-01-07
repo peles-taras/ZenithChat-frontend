@@ -1,10 +1,16 @@
 <template>
   <header>
-    <ul>
-      <li> <a href="#">Home</a> </li>
+    <div class="logo" @click="logoHandle">
+      <img src="../assets/logo.png" class="logo-img">
+    </div>
+    <div>
+      <p class="dots"></p>
+    </div>
+
+    <!-- <ul>
       <li> <a href="#">Chats</a> </li>
       <li> <a href="#">About</a> </li>
-    </ul>
+    </ul> -->
     <button class="button" @click="loginHandle" @mousemove="handleMouseMove"> Log in</button>
   </header>
 </template>
@@ -14,7 +20,7 @@ import { getCurrentInstance } from 'vue';
 
 export default {
   name: 'HeaderNav',
-  
+
   setup() {
     const instance = getCurrentInstance();
 
@@ -22,8 +28,13 @@ export default {
       instance.proxy.$router.push({ name: 'Login' });
     };
 
-    return { loginHandle };
-  } 
+    const logoHandle = () => {
+      instance.proxy.$router.push({ name: 'Home' });
+    };
+
+
+    return { loginHandle, logoHandle };
+  }
 };
 </script>
 
@@ -36,9 +47,9 @@ header {
   padding: 10px;
   display: flex;
   align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 ul {
@@ -63,4 +74,57 @@ a {
 button {
   margin-left: 100px;
 }
-</style>
+
+.logo {
+  cursor: pointer;
+  display: flex;
+}
+
+.logo-img {
+  object-fit: cover;
+  width: 50px;
+  height: 45px;
+}
+
+.dots {
+  margin-top: 15px;
+  width: 20px;
+}
+
+
+
+.dots:after {
+  content: ' .';
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+
+  80%,
+  100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;
+  }
+}</style>

@@ -3,7 +3,7 @@
 <footer> 
     <ul>
       <li> <a href="#">Terms of use</a></li>
-      <li> <a href="#">About</a> </li>
+      <li> <a href="#">Author</a> </li>
     </ul>
   </footer>
 
@@ -37,8 +37,8 @@ ul {
 footer li:not(:last-child):after {
   content: '';
   display: inline-block;
-  width: 2px; /* Adjust the width of your separator */
-  height: 1em; /* Adjust the height of your separator */
+  width: 2px; 
+  height: 1em; 
   margin: -0.1em 0.6em;
   background: linear-gradient(to right, #b6f492, #338b93);
   }
