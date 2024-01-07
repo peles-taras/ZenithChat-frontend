@@ -5,18 +5,26 @@
       <li> <a href="#">Chats</a> </li>
       <li> <a href="#">About</a> </li>
     </ul>
-    <button class="button" @mousemove="handleMouseMove"> Log in</button>
+    <button class="button" @click="loginHandle" @mousemove="handleMouseMove"> Log in</button>
   </header>
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue';
+
 export default {
   name: 'HeaderNav',
+  
   setup() {
+    const instance = getCurrentInstance();
 
-  }
+    const loginHandle = () => {
+      instance.proxy.$router.push({ name: 'Login' });
+    };
 
-}
+    return { loginHandle };
+  } 
+};
 </script>
 
 <style scoped>

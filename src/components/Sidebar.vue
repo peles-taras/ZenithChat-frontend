@@ -4,16 +4,10 @@
             <div class="sidebar-content">
                 <ul>
                     <li class="li-bottom-border">
-                        <a href="#">
-                            <i class=""></i>
-                            Profile
-                        </a>
+                        <router-link :to="{name: 'Profile'}"> Profile </router-link>
                     </li>
                     <li class="li-bottom-border">
-                        <a href="#">
-                            <i class=""></i>
-                            Messages
-                        </a>
+                        <router-link :to="{name: 'Chat'}"> Chat </router-link>
                     </li>
                 </ul>
             </div>
@@ -45,6 +39,7 @@ export default {
     color: white;
     display: flex;
     flex-direction: column;
+    border-left: none;
 }
 
 .sidebar-header {

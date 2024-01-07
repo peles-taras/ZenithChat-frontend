@@ -79,15 +79,21 @@ body {
   cursor: pointer;
   outline: none;
   border: 2px solid transparent;
-  border-left: none;
   background: linear-gradient(#1b1f23, #1b1f23) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #b6f492, #338b93) border-box;
 }
 
 .content{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a:hover {
+  background: linear-gradient(to right, #b6f492, #338b93);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-decoration: none; 
 }
 </style>
 

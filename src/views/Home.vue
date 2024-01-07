@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
   <h3>this is home </h3>
+
   </div>
 </template>
 
@@ -18,9 +19,6 @@ export default {
 
 <style scoped>
 
-.wrapper {
-margin-top: 100px;
-}
 
 </style>
    
