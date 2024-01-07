@@ -1,6 +1,12 @@
 <template>
     <div class="wrapper gradient-border" @mousemove="handleMouseMove">
         <form>
+
+            <div class="form-input">
+                <label>Email</label>
+                <input type="email">
+            </div>
+
             <div class="form-input">
                 <label>Username</label>
                 <input type="text">
@@ -11,9 +17,9 @@
                 <input type="password">
             </div>
 
-            <button class="button">Log in</button>
+            <button class="button">Sign up</button>
             <div class="signup">
-                <p >No account? <router-link class="signup-link" :to="{ name: 'Signup' }"> Signup </router-link></p>
+                <p >Already an have account? <router-link class="signup-link" :to="{ name: 'Login' }"> Login </router-link></p>
             </div>
 
         </form>
@@ -29,7 +35,7 @@ export default {
 <style scoped>
 .wrapper {
     width: 35%;
-    height: 40vh;
+    height: 50vh;
 }
 
 .form-input {
@@ -48,8 +54,9 @@ button {
 }
 
 input {
-    width: 350px;
+    width: 450px;
     height: 30px;
+    text-align: center;
 }
 
 label {
@@ -65,4 +72,5 @@ label {
 .signup-link{
 text-decoration: none;
 }
+
 </style>

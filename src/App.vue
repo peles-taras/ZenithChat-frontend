@@ -1,11 +1,11 @@
 <template>
-<HeaderNav />
+  <HeaderNav />
 
-<Sidebar />
+  <Sidebar />
 
   <router-view class="content" />
 
-<FooterNav />
+  <FooterNav />
 </template>
 
 <script>
@@ -15,9 +15,9 @@ import Sidebar from './components/Sidebar.vue'
 
 export default {
   name: 'App',
-  components: { HeaderNav,  FooterNav, Sidebar},
+  components: { HeaderNav, FooterNav, Sidebar },
 
-  data(){
+  data() {
 
   }
 }
@@ -47,13 +47,17 @@ body {
   min-height: 100vh;
 }
 
-.box {
-  border: 8px solid #0038FF;
-  border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%230038FF'/%3E%3C/svg%3E") 8 stretch;
+input {
+  border: 0px solid;
+  border-radius: 15px;
+  transition: border-color 0.3s ease;
+  padding: 15px;
+  font-size: 20px;
 }
 
-.box:before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0H0v8h12v4h4v4h-4v4H0v8h4v-4h8v-4h4v-4h8v-4h-8V8h-4V4H4V0z' fill='%230038FF'/%3E%3Cpath fill='%23161616' d='M0 8h4v12H0z'/%3E%3C/svg%3E");
+input:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(182, 244, 146) 0px 0px 0px 3px;
 }
 
 .button {
@@ -61,8 +65,8 @@ body {
   --y: 50%;
   position: relative;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   padding: 1em 2em;
   color: white;
   cursor: pointer;
@@ -76,13 +80,12 @@ body {
   --y: 50%;
   position: relative;
   padding: 1em 2em;
-  cursor: pointer;
   outline: none;
   border: 2px solid transparent;
   background: linear-gradient(#1b1f23, #1b1f23) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #b6f492, #338b93) border-box;
 }
 
-.content{
+.content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -93,7 +96,7 @@ a:hover {
   background: linear-gradient(to right, #b6f492, #338b93);
   -webkit-background-clip: text;
   color: transparent;
-  text-decoration: none; 
+  text-decoration: none;
 }
 </style>
 

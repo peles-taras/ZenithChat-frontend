@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .chat-wrapper {
     margin-left: 100px;
     width: 70%;

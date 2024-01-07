@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Chat from '../views/Chat.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile.vue'
+import Signup from '../views/Signup.vue'
 
 const routes = [
   {
@@ -21,10 +22,16 @@ const routes = [
     component: Login
   },
   {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
+  },
+  {
     path: '/profile',
     name: 'Profile',
     component: Profile
   }
+
 ]
 
 const router = createRouter({
