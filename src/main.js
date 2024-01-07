@@ -1,5 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import buttonHandleMixin from '../mixins/buttonHandleMixin';
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App);
+app.mixin(buttonHandleMixin);
+app.use(router);
+app.mount('#app');
