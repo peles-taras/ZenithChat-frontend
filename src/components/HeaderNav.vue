@@ -1,16 +1,12 @@
 <template>
   <header>
     <div class="logo" @click="logoHandle">
+      <p>Zenith</p>
       <img src="../assets/logo.png" class="logo-img">
     </div>
     <div>
       <p class="dots"></p>
     </div>
-
-    <!-- <ul>
-      <li> <a href="#">Chats</a> </li>
-      <li> <a href="#">About</a> </li>
-    </ul> -->
     <button class="button" @click="loginHandle" @mousemove="handleMouseMove"> Log in</button>
   </header>
 </template>
@@ -80,6 +76,11 @@ button {
   display: flex;
 }
 
+.logo>p {
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
 .logo-img {
   object-fit: cover;
   width: 50px;
@@ -127,4 +128,5 @@ button {
       .25em 0 0 white,
       .5em 0 0 white;
   }
-}</style>
+}
+</style>
