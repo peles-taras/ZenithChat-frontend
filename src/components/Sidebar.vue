@@ -7,7 +7,7 @@
                         <router-link :to="{name: 'Profile'}"> Profile </router-link>
                     </li>
                     <li class="li-bottom-border">
-                        <router-link :to="{name: 'Chat'}"> Chat </router-link>
+                        <router-link :to="{name: 'Chats'}"> Chats </router-link>
                     </li>
                 </ul>
             </div>

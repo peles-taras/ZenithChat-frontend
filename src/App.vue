@@ -12,10 +12,11 @@
 import HeaderNav from './components/HeaderNav.vue'
 import FooterNav from './components/FooterNav.vue'
 import Sidebar from './components/Sidebar.vue'
+import Chat from './components/Chat.vue'
 
 export default {
   name: 'App',
-  components: { HeaderNav, FooterNav, Sidebar },
+  components: { HeaderNav, FooterNav, Sidebar, Chat },
 
   data() {
 
@@ -85,6 +86,21 @@ input:focus {
   background: linear-gradient(#1b1f23, #1b1f23) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #b6f492, #338b93) border-box;
 }
 
+.gradient-border-no-padding {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  outline: none;
+  border: 2px solid transparent;
+  background: linear-gradient(#1b1f23, #1b1f23) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #b6f492, #338b93) border-box;
+}
+
+.gradient-border-bottom {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #b6f492, #338b93);
+  border-image-slice: 1;
+}
+
 .content {
   position: absolute;
   top: 50%;
@@ -95,6 +111,7 @@ input:focus {
 a:hover {
   background: linear-gradient(to right, #b6f492, #338b93);
   -webkit-background-clip: text;
+  background-clip: none;
   color: transparent;
   text-decoration: none;
 }
