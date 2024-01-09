@@ -13,6 +13,8 @@
                     </div>
                     <h3 class="chatter-name">{{ chatter.name }}</h3>
                 </div>
+                
+                <!-- TODO: replace with DB messages, sort them -->
                 <div class="message-wrapper">
                     <div v-for="message in incomingMessages" :key=message.text>
                         <div class="message">
@@ -32,6 +34,14 @@
                         </div>
                     </div>
                 </div>
+             
+                <div class="send-message">
+                    <form>
+                        <textarea placeholder="Message..."></textarea>
+                    </form>
+                    <button type="submit" class="button" @mousemove="handleMouseMove">Send</button> 
+                </div>
+
             </div>
         </div>
     </div>
@@ -177,11 +187,42 @@ export default {
 .message-outcoming { 
     float: right;
 }
+
 .message-outcoming > div {
     background-color: rgb(17, 209, 154); 
 }
+
 .message-outcoming > div > .message-timestamp{
     color: rgb(7, 6, 6);
 }
 
+.send-message{
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.send-message > form{
+    width: 80%;
+    display: flex;
+}
+
+.send-message > form > textarea {
+    width: 95%;
+    height: 45px;
+    font-size: 16px;
+    padding: 5px 5px;
+    border-radius: 0px;
+    overflow-wrap: break-word;
+    resize: none;
+}
+:focus {
+   box-shadow: none;
+}
 </style>
