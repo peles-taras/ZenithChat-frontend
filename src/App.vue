@@ -12,11 +12,12 @@
 import HeaderNav from './components/HeaderNav.vue'
 import FooterNav from './components/FooterNav.vue'
 import Sidebar from './components/Sidebar.vue'
-import Chat from './components/Chat.vue'
+import ChatSidebar from './components/ChatSidebar.vue'
+
 
 export default {
   name: 'App',
-  components: { HeaderNav, FooterNav, Sidebar, Chat },
+  components: { HeaderNav, FooterNav, Sidebar, ChatSidebar},
 
   data() {
 
