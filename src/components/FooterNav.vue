@@ -3,7 +3,7 @@
 <footer> 
     <ul>
       <li> <a href="#">Terms of use</a></li>
-      <li> <a href="#">Author</a> </li>
+      <li> <a href="#">About</a> </li>
     </ul>
   </footer>
 

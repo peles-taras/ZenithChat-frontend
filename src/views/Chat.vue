@@ -13,7 +13,7 @@
                     </div>
                     <h3 class="chatter-name">{{ chatter.name }}</h3>
                 </div>
-                
+
                 <!-- TODO: replace with DB messages, sort them -->
                 <div class="message-wrapper">
                     <div v-for="message in incomingMessages" :key=message.text>
@@ -34,12 +34,12 @@
                         </div>
                     </div>
                 </div>
-             
+
                 <div class="send-message">
                     <form>
                         <textarea placeholder="Message..."></textarea>
                     </form>
-                    <button type="submit" class="button" @mousemove="handleMouseMove">Send</button> 
+                    <button type="submit" class="button" @mousemove="handleMouseMove">Send</button>
                 </div>
 
             </div>
@@ -109,7 +109,7 @@ export default {
     justify-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
-    
+
 }
 
 .chatter-img {
@@ -129,16 +129,16 @@ export default {
     height: 100%;
 }
 
-.message-wrapper{
+.message-wrapper {
     overflow-y: hidden;
     scrollbar-width: thin;
     scrollbar-color: grey;
     scrollbar-gutter: stable both-edges;
     padding-right: 10px;
 }
+
 ::-webkit-scrollbar {
     width: 4px;
-
 }
 
 ::-webkit-scrollbar-thumb {
@@ -154,9 +154,10 @@ export default {
     overflow-y: auto;
 }
 
-.message-wrapper > div {
+.message-wrapper>div {
     width: 100%;
 }
+
 .message {
     margin: 5px 5px;
 }
@@ -171,7 +172,7 @@ export default {
 .message-text {
     max-width: 100%;
     width: 100%;
-    font-size: 14px; 
+    font-size: 14px;
     overflow-wrap: break-word;
     padding: 5px 20px;
 }
@@ -180,23 +181,23 @@ export default {
 .message-timestamp {
     font-size: 9px;
     color: rgb(176, 176, 176);
-    margin: 0 0 0 0; 
+    margin: 0 0 0 0;
     padding: 5px 20px;
 }
 
-.message-outcoming { 
+.message-outcoming {
     float: right;
 }
 
-.message-outcoming > div {
-    background-color: rgb(17, 209, 154); 
+.message-outcoming>div {
+    background-color: rgb(17, 209, 154);
 }
 
-.message-outcoming > div > .message-timestamp{
+.message-outcoming>div>.message-timestamp {
     color: rgb(7, 6, 6);
 }
 
-.send-message{
+.send-message {
     width: 100%;
     height: 80px;
     margin-top: 10px;
@@ -208,12 +209,12 @@ export default {
     overflow: hidden;
 }
 
-.send-message > form{
+.send-message>form {
     width: 80%;
     display: flex;
 }
 
-.send-message > form > textarea {
+.send-message>form>textarea {
     width: 95%;
     height: 45px;
     font-size: 16px;
@@ -222,7 +223,7 @@ export default {
     overflow-wrap: break-word;
     resize: none;
 }
+
 :focus {
-   box-shadow: none;
-}
-</style>
+    box-shadow: none;
+}</style>
