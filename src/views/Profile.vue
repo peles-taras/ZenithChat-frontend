@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-wrapper gradient-border" @mousemove="handleMouseMove">
+  <div class="profile-wrapper gradient-border" @mousemove="handleMouseMove">
 
     <ProfileHeader />
 
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-.chat-wrapper {
+.profile-wrapper {
   width: 40%;
   min-height: 60vh;
   height: auto;

@@ -77,6 +77,14 @@ input:focus, textarea:focus {
   background: linear-gradient(#1b1f23, #1b1f23) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #b6f492, #338b93) border-box;
 }
 
+.gradient-text {
+  background: linear-gradient(to right, #b6f492, #338b93);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
 .gradient-border {
   --x: 50%;
   --y: 50%;
