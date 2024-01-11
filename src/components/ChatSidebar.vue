@@ -1,11 +1,11 @@
 <template>
     <div class="contacts">
         <div class="searchbar">
-            <input type="search" placeholder="Search...">
+            <input type="search" v-model="searchText" @input="searchFilter" placeholder="Search...">
         </div>
         <div class="contacts-list">
 
-            <div v-for="contact in contactList" :key=contact.id class="contact gradient-border-bottom"
+            <div v-for="contact in filteredContactList" :key=contact.id class="contact gradient-border-bottom"
                 @click="redirectToChat(contact.id)">
                 <div class="contact-image">
                     <img :src="contact.image">
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { ref, getCurrentInstance } from 'vue'
+import { ref, getCurrentInstance, computed } from 'vue'
 
 
 export default {
@@ -41,6 +41,8 @@ export default {
         const redirectToChat = (id) => {
             instance.proxy.$router.push({ name: 'Chat', params: { id } })
         }
+
+        const searchText = ref('');
 
         const contactList = ref([{
             id: 1,
@@ -117,13 +119,30 @@ export default {
         }
         ])
 
+        const filteredContactList = computed(() => {
+            const searchTerm = searchText.value.toLowerCase();
+            if (searchTerm.trim() === '') {
+                return contactList.value;
+            } else {
+                return contactList.value.filter(contact =>
+                    contact.name.toLowerCase().includes(searchTerm)
+                );
+            }
+        });
+
         const truncateMessage = (message) => {
             const maxLength = 15;
             return message.length > maxLength
                 ? message.slice(0, maxLength) + '...'
                 : message;
         };
-        return { contactList, truncateMessage, redirectToChat }
+        return {
+            searchText,
+            contactList,
+            filteredContactList,
+            truncateMessage,
+            redirectToChat,
+        }
     }
 }
 </script>

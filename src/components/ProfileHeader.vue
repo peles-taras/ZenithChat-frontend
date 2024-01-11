@@ -1,8 +1,7 @@
 <template>
     <div class="profile-header">
-        <a href="#">Menu 1</a>
-        <a href="#">Menu 2</a>
-        <a href="#">Menu 3</a>
+        <a href="#">User settings</a>
+        <a href="#">Privacy settings</a>
     </div>
 </template>
 
@@ -29,5 +28,6 @@ export default {
 
 .profile-header>a {
     width: 100%;
+    text-decoration: none;
 }
 </style>
