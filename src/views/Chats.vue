@@ -28,7 +28,6 @@ export default {
 
 <style>
 .chat-wrapper {
-    margin-left: 100px;
     width: 70%;
     height: 80vh;
     display: flex;

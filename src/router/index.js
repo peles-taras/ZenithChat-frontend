@@ -5,6 +5,7 @@ import Chats from '../views/Chats.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile.vue'
 import Signup from '../views/Signup.vue'
+import ContactSearch from '../views/ContactSearch.vue'
 
 const routes = [
   {
@@ -34,9 +35,15 @@ const routes = [
     component: Signup
   },
   {
-    path: '/profile',
+    path: '/profile/:id',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    props: true
+  },
+  {
+    path: '/contact-search',
+    name: 'ContactSearch',
+    component: ContactSearch
   }
 
 ]

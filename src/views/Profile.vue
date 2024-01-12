@@ -23,12 +23,19 @@
 
 <script>
 import ProfileHeader from '../components/ProfileHeader.vue'
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router';
 
 export default {
   components: { ProfileHeader },
   setup() {
+
+    const router = useRouter();
+    const chatId = ref(router.currentRoute.value.params.id);
+
+    watchEffect(() => {
+      chatId.value = router.currentRoute.value.params.id;
+    })
 
     const user = ref({
       id: 1,
@@ -59,13 +66,13 @@ export default {
   margin: 20px 20px;
 }
 
-  .profile-image {
-    overflow: hidden;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    margin: 0 10px;
-    border-radius: 50px;
+.profile-image {
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  margin: 0 10px;
+  border-radius: 50px;
 }
 
 .profile-image>img {
@@ -77,22 +84,21 @@ export default {
   height: 100%;
 }
 
-.profile-info{
+.profile-info {
   margin-top: 20px;
   text-align: center;
 }
 
-.profile-info-username{ 
+.profile-info-username {
   color: bisque;
 }
 
-.profile-info-about{
+.profile-info-about {
   margin-top: 100px;
 }
 
-.profile-info-about > label{
+.profile-info-about>label {
   font-size: 22px;
   color: grey;
 }
-
 </style>

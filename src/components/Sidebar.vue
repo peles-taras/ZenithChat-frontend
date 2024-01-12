@@ -4,10 +4,13 @@
             <div class="sidebar-content">
                 <ul>
                     <li class="li-bottom-border">
-                        <router-link :to="{name: 'Profile'}"> Profile </router-link>
+                        <router-link :to="{ name: 'Profile', params: { id: user.id } }"> Profile </router-link>
                     </li>
                     <li class="li-bottom-border">
-                        <router-link :to="{name: 'Chats'}"> Chats </router-link>
+                        <router-link :to="{ name: 'Chats' }"> Chats </router-link>
+                    </li>
+                    <li class="li-bottom-border">
+                        <router-link :to="{ name: 'ContactSearch' }"> Find contact </router-link>
                     </li>
                 </ul>
             </div>
@@ -16,8 +19,21 @@
 </template>
   
 <script>
+import { ref } from 'vue'
+
 export default {
-    name: 'Sidebar'
+    name: 'Sidebar',
+    setup() {
+
+        const user = ref({
+            id: 1,
+            username: 'John Doe',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbKFNdYkVUeHuTI3QzEUczJ0VBzZus6lcKGMFkex-9HA&s',
+            about: 'Some profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bio'
+        })
+
+        return {user}
+    }
 }
 </script>
   
@@ -64,7 +80,7 @@ ul {
 }
 
 li {
-    padding: 15px;
+    padding: 10px;
 }
 
 .li-bottom-border {
