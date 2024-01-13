@@ -2,8 +2,8 @@
 
 <footer> 
     <ul>
-      <li> <a href="#">Terms of use</a></li>
-      <li> <a href="#">About</a> </li>
+      <li> <router-link :to="{ name: 'Terms' }"> Terms of use </router-link> </li>
+      <li> <router-link :to="{ name: 'About' }"> About </router-link> </li>
     </ul>
   </footer>
 

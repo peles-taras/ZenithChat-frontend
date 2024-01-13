@@ -6,6 +6,9 @@ import Login from '../views/Login.vue'
 import Profile from '../views/Profile.vue'
 import Signup from '../views/Signup.vue'
 import ContactSearch from '../views/ContactSearch.vue'
+import About from '../views/About.vue'
+import Terms from '../views/Terms.vue'
+import Error from '../views/Error.vue'
 
 const routes = [
   {
@@ -44,6 +47,21 @@ const routes = [
     path: '/contact-search',
     name: 'ContactSearch',
     component: ContactSearch
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  {
+    path: '/terms',
+    name: 'Terms',
+    component: Terms
+  },
+  {
+    path: '/:catchAll(.*)', 
+    name: 'Error',
+    component: Error
   }
 
 ]
