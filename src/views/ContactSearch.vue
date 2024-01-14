@@ -31,14 +31,12 @@ import { ref, getCurrentInstance, computed } from 'vue'
 
 export default {
     setup() {
-
         const instance = getCurrentInstance();
+        const searchText = ref('');
 
         const redirectToProfile = (id) => {
             instance.proxy.$router.push({ name: 'Profile', params: { id } })
         }
-
-        const searchText = ref('');
 
         const filteredContactList = computed(() => {
             const searchTerm = searchText.value.toLowerCase();

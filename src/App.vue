@@ -17,11 +17,7 @@ import ProfileHeader from './components/ProfileHeader.vue'
 
 export default {
   name: 'App',
-  components: { HeaderNav, FooterNav, Sidebar, ChatSidebar, ProfileHeader},
-
-  data() {
-
-  }
+  components: { HeaderNav, FooterNav, Sidebar, ChatSidebar, ProfileHeader },
 }
 </script>
 
@@ -49,7 +45,8 @@ body {
   min-height: 100vh;
 }
 
-input, textarea{
+input,
+textarea {
   border: 0px solid;
   border-radius: 15px;
   transition: border-color 0.3s ease;
@@ -57,7 +54,8 @@ input, textarea{
   font-size: 20px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(182, 244, 146) 0px 0px 0px 3px;
 }

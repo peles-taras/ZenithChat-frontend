@@ -9,11 +9,11 @@
 import { ref } from 'vue'
 
 export default {
-setup(){
+  setup() {
+    const errorMessage = ref('The page doesn`t exist');
 
- const errorMessage = ref('The page doesn`t exist');
- return {errorMessage}
-}
+    return { errorMessage }
+  }
 
 } 
 </script>

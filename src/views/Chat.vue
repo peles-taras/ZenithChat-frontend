@@ -7,7 +7,7 @@
             <div class="separator gradient-border-no-padding"></div>
 
             <div class="chat">
-                <div class="chatter-header">
+                <div class="chatter-header" @click="redirectToProfile(chatter.id)">
                     <div class="chatter-img">
                         <img :src="chatter.image">
                     </div>
@@ -49,15 +49,20 @@
 
 <script>
 import ChatSidebar from '../components/ChatSidebar.vue'
-import { ref, watchEffect } from 'vue'
+import { ref, getCurrentInstance, watchEffect } from 'vue'
 import { useRouter } from 'vue-router';
 
 export default {
     name: 'Chat',
     components: { ChatSidebar },
     setup() {
+        const instance = getCurrentInstance();
         const router = useRouter();
         const chatId = ref(router.currentRoute.value.params.id);
+
+        const redirectToProfile = (id) => {
+            instance.proxy.$router.push({ name: 'Profile', params: { id } })
+        }
 
         watchEffect(() => {
             chatId.value = router.currentRoute.value.params.id;
@@ -77,18 +82,17 @@ export default {
             { text: 'how are you doing?', timestamp: '17:55' },
             { text: 'im fine too', timestamp: '17:56' },
             { text: 'Hello!', timestamp: '17:54' },
-            { text: 'how are you doing?', timestamp: '17:55' },
-            { text: 'GigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongG123', timestamp: '17:54' },
-            { text: 'GigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongG123', timestamp: '17:54' },
-            { text: 'GigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongGGigalongGigalongG123', timestamp: '17:54' }
+            { text: 'how are you doing?', timestamp: '17:55' }
         ])
 
         const outcomingMessages = ref([
             { text: 'Hello yo youself', timestamp: '17:57' },
             { text: 'im fine, what about you?', timestamp: '17:58' },
-            { text: 'nice!', timestamp: '17:59' }
+            { text: 'nice!', timestamp: '17:59' },
+            { text: 'xyz', timestamp: '17:59' }
         ])
-        return { chatId, chatter, incomingMessages, outcomingMessages };
+
+        return { chatId, chatter, incomingMessages, outcomingMessages, redirectToProfile };
     },
 }
 </script>
@@ -109,7 +113,7 @@ export default {
     justify-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
-
+    cursor: pointer;
 }
 
 .chatter-img {
@@ -226,4 +230,5 @@ export default {
 
 :focus {
     box-shadow: none;
-}</style>
+}
+</style>

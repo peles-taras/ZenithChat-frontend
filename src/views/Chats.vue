@@ -8,7 +8,7 @@
                 <div class="chat-select-text">
                     <h3> Select a contact to chat with</h3>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -20,9 +20,6 @@ import ChatSidebar from '../components/ChatSidebar.vue'
 export default {
     name: 'Chats',
     components: { ChatSidebar },
-    setup() {
-
-    }
 }
 </script>
 
@@ -56,7 +53,7 @@ export default {
     height: 100%;
 }
 
-.chat-select-text{ 
+.chat-select-text {
     display: flex;
     align-items: center;
     text-align: center;

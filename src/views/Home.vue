@@ -10,13 +10,17 @@
 
     <div class="features">
       <ul>
-        <li><label class="gradient-text"> Intuitive Interface:</label> Navigate effortlessly through our clean and user-friendly design. Zenith
+        <li><label class="gradient-text"> Intuitive Interface:</label> Navigate effortlessly through our clean and
+          user-friendly design. Zenith
           prioritizes simplicity without compromising on powerful features.</li>
-        <li><label class="gradient-text">End-to-End Encryption:</label> Your privacy is our priority. Enjoy secure and confidential
+        <li><label class="gradient-text">End-to-End Encryption:</label> Your privacy is our priority. Enjoy secure and
+          confidential
           conversations with end-to-end encryption, ensuring that your messages stay private.</li>
-        <li><label class="gradient-text">Group Chats and Collaboration:</label> Easily connect with groups of friends or colleagues. Zenith
+        <li><label class="gradient-text">Group Chats and Collaboration:</label> Easily connect with groups of friends or
+          colleagues. Zenith
           supports dynamic group chats and collaboration tools, making teamwork and socializing a breeze.</li>
-        <li><label class="gradient-text">File Sharing:</label> Share documents, images, and videos effortlessly. Zenith allows you to send files
+        <li><label class="gradient-text">File Sharing:</label> Share documents, images, and videos effortlessly. Zenith
+          allows you to send files
           of various formats without compromising on quality or speed.</li>
         <li><label class="gradient-text">Notifications:</label> Stay in control of your notifications.
           Never miss an important message.</li>
@@ -28,18 +32,12 @@
 
    
 <script>
-
-
 export default {
   name: 'Home',
-  setup() {
-
-  }
 }
 </script>
 
 <style scoped>
-
 h3 {
   font-size: 30px;
 }

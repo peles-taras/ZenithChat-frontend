@@ -13,7 +13,7 @@
 
             <button class="button">Log in</button>
             <div class="signup">
-                <p >No account? <router-link class="signup-link" :to="{ name: 'Signup' }"> Signup </router-link></p>
+                <p>No account? <router-link class="signup-link" :to="{ name: 'Signup' }"> Signup </router-link></p>
             </div>
 
         </form>
@@ -57,12 +57,12 @@ label {
     margin-bottom: 5px;
 }
 
-.signup{
+.signup {
     margin-top: 20px;
     text-align: center;
 }
 
-.signup-link{
-text-decoration: none;
+.signup-link {
+    text-decoration: none;
 }
 </style>

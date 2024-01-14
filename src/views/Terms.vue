@@ -18,10 +18,12 @@ export default {
 }
 </script>
 
-<style scoped>.terms {
+<style scoped>
+.terms {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-}</style>
+}
+</style>

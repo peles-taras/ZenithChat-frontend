@@ -12,6 +12,8 @@
           <p> {{ user.username }}</p>
         </div>
 
+        <button class="button" @click="redirectToChat(user.id)"> Message </button>
+
         <div class="profile-info-about">
           <label> About: </label>
           <p> {{ user.about }}</p>
@@ -23,15 +25,19 @@
 
 <script>
 import ProfileHeader from '../components/ProfileHeader.vue'
-import { ref, watchEffect } from 'vue'
+import { ref, getCurrentInstance, watchEffect } from 'vue'
 import { useRouter } from 'vue-router';
 
 export default {
   components: { ProfileHeader },
   setup() {
-
+    const instance = getCurrentInstance();
     const router = useRouter();
     const chatId = ref(router.currentRoute.value.params.id);
+
+    const redirectToChat = (id) => {
+      instance.proxy.$router.push({ name: 'Chat', params: { id } })
+    }
 
     watchEffect(() => {
       chatId.value = router.currentRoute.value.params.id;
@@ -44,7 +50,7 @@ export default {
       about: 'Some profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bioSome profile bio'
     })
 
-    return { user }
+    return { user, redirectToChat }
   }
 }
 </script>
@@ -89,12 +95,16 @@ export default {
   text-align: center;
 }
 
+.profile-info>button {
+  margin-top: 50px;
+}
+
 .profile-info-username {
   color: bisque;
 }
 
 .profile-info-about {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .profile-info-about>label {
