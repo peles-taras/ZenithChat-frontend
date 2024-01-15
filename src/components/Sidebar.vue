@@ -12,6 +12,9 @@
                     <li class="li-bottom-border">
                         <router-link :to="{ name: 'ContactSearch' }"> Find contact </router-link>
                     </li>
+                    <li class="li-bottom-border">
+                        <router-link :to="{ name: 'Settings' }"> Settings </router-link>
+                    </li>
                 </ul>
             </div>
         </div>

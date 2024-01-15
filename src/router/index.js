@@ -8,7 +8,9 @@ import Signup from '../views/Signup.vue'
 import ContactSearch from '../views/ContactSearch.vue'
 import About from '../views/About.vue'
 import Terms from '../views/Terms.vue'
+import Settings from '../views/Settings.vue'
 import Error from '../views/Error.vue'
+
 
 const routes = [
   {
@@ -57,6 +59,11 @@ const routes = [
     path: '/terms',
     name: 'Terms',
     component: Terms
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
   },
   {
     path: '/:catchAll(.*)', 

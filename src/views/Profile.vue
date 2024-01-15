@@ -1,8 +1,6 @@
 <template>
   <div class="profile-wrapper gradient-border" @mousemove="handleMouseMove">
 
-    <ProfileHeader />
-
     <div class="profile-general">
       <div class="profile-image">
         <img :src="user.image">
@@ -12,7 +10,7 @@
           <p> {{ user.username }}</p>
         </div>
 
-        <button class="button" @click="redirectToChat(user.id)"> Message </button>
+        <button class="button" @click="redirectToChat(user.id)" @mousemove="handleMouseMove"> Message </button>
 
         <div class="profile-info-about">
           <label> About: </label>
