@@ -48,53 +48,89 @@
 </template>
 
 <script>
-import ChatSidebar from '../components/ChatSidebar.vue'
-import { ref, getCurrentInstance, watchEffect } from 'vue'
+import ChatSidebar from '../components/ChatSidebar.vue';
+import { ref, getCurrentInstance, watchEffect, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import SockJS from 'sockjs-client';
+import { Stomp } from '@stomp/stompjs';
 
 export default {
     name: 'Chat',
     components: { ChatSidebar },
+
     setup() {
         const instance = getCurrentInstance();
         const router = useRouter();
         const chatId = ref(router.currentRoute.value.params.id);
-
-        const redirectToProfile = (id) => {
-            instance.proxy.$router.push({ name: 'Profile', params: { id } })
-        }
-
-        watchEffect(() => {
-            chatId.value = router.currentRoute.value.params.id;
-        })
-
         const chatter = ref({
             id: 2,
             name: 'Maria Johnson',
             image: 'https://ih1.redbubble.net/image.1829576658.5408/flat,750x1000,075,f.jpg',
             lastMessageHint: 'lmao pepega',
             lastMessageTimestamp: '10:53',
-            unreadMessages: 1
-        })
+            unreadMessages: 1,
+        });
 
-        const incomingMessages = ref([
-            { text: 'Hello!', timestamp: '17:54' },
-            { text: 'how are you doing?', timestamp: '17:55' },
-            { text: 'im fine too', timestamp: '17:56' },
-            { text: 'Hello!', timestamp: '17:54' },
-            { text: 'how are you doing?', timestamp: '17:55' }
-        ])
+        const redirectToProfile = (id) => {
+            instance.proxy.$router.push({ name: 'Profile', params: { id } });
+        };
 
-        const outcomingMessages = ref([
-            { text: 'Hello yo youself', timestamp: '17:57' },
-            { text: 'im fine, what about you?', timestamp: '17:58' },
-            { text: 'nice!', timestamp: '17:59' },
-            { text: 'xyz', timestamp: '17:59' }
-        ])
+        watchEffect(() => {
+            chatId.value = router.currentRoute.value.params.id;
+        });
 
-        return { chatId, chatter, incomingMessages, outcomingMessages, redirectToProfile };
+        watchEffect(() => {
+            if (chatter.value) {
+                // TODO: connect to websocket if chatter exists
+            }
+        });
+
+        return { chatId, chatter, redirectToProfile };
     },
-}
+
+    data() {
+        return {
+            stompClient: null,
+        };
+    },
+
+    mounted() {
+        const socket = new SockJS('http://localhost:8089/ws');
+        this.stompClient = Stomp.over(socket);
+        this.stompClient.connect({}, this.onConnected, this.onError);
+    },
+
+    methods: {
+
+        onConnected(chatterName) {
+            this.stompClient.subscribe(
+                'http://localhost:8089/user/' + chatterName + '/queue/messages',
+                onMessageRecieved);
+
+            this.stompClient.subscribe(
+            'http://localhost:8089/user/public',
+            onMessageRecieved);
+
+            // TODO: Register the connected user
+
+            stompClient.send('http://localhost:8089/app/user.addUser',
+            {},
+            JSON.stringify({ 
+                username: username,
+                fullName: fullName,
+                status: 'ONLINE'
+            }))
+        },
+
+        onError() {
+            console.log('error');
+        },
+
+        onMessageRecieved() {
+            console.log('message recieved');
+        }
+    },
+};
 </script>
 
 <style scoped>
